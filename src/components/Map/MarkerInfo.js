@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { Marker, MarkerClusterer } from "@react-google-maps/api"
+import { Marker } from "@react-google-maps/api"
 
 import CustomInfoWindow from "./CustomInfoWindow"
 
@@ -34,13 +34,10 @@ export default function MarkerInfo({
     })
     setInfoOpen(true)
   }
-  console.log(placeLatLng)
 
   return (
     <>
       <Marker
-        // options={options}
-
         onClick={() => handleClickedMarker(place)}
         key={createKey(place)}
         position={placeLatLng}

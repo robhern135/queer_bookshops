@@ -1,11 +1,9 @@
 import React from "react"
 
-import { Grid, Box, Typography } from "@material-ui/core"
+import { Box, Typography } from "@material-ui/core"
 
 import PhoneIcon from "@material-ui/icons/Phone"
-import EmailIcon from "@material-ui/icons/Email"
 import WebIcon from "@material-ui/icons/Web"
-// import PrintIcon from "@material-ui/icons/Print"
 
 export default function ContactDetails({ tel, website, social_media }) {
   return (

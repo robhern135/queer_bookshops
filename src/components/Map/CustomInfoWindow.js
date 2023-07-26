@@ -4,10 +4,10 @@ import { InfoWindow } from "@react-google-maps/api"
 
 import { Typography } from "@material-ui/core"
 
+import { decodeTitle } from "../../functions"
+
 const CustomInfoWindow = ({ place, position }) => {
   const title = place.title.rendered
-  const { acf } = place
-  const { address, website } = acf
   return (
     <InfoWindow position={position}>
       <div
@@ -17,7 +17,7 @@ const CustomInfoWindow = ({ place, position }) => {
           textAlign: "center",
         }}
       >
-        <Typography variant="h5">{title}</Typography>
+        <Typography variant="h5">{decodeTitle(title)}</Typography>
         <Typography variant="subtitle2">{place.acf.address}</Typography>
       </div>
     </InfoWindow>

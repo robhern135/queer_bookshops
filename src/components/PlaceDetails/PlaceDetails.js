@@ -1,27 +1,10 @@
-import { useEffect } from "react"
-
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  CardActions,
-  Chip,
-} from "@material-ui/core"
+import { Box, Typography, Card, CardContent } from "@material-ui/core"
 
 import LocationOnIcon from "@material-ui/icons/LocationOn"
-import PhoneIcon from "@material-ui/icons/Phone"
 import WebIcon from "@mui/icons-material/Web"
-import MeetingRoomIcon from "@mui/icons-material/MeetingRoom"
-import NoMeetingRoomIcon from "@mui/icons-material/NoMeetingRoom"
-
-import CardImage from "./CardImage"
-
 import useStyles from "./styles"
 
-//react-router-dom
-import { Link } from "react-router-dom"
-import { MicNone } from "@material-ui/icons"
+import { decodeTitle } from "../../functions"
 
 const PlaceDetails = ({ place, refProp, selected }) => {
   const classes = useStyles()
@@ -29,15 +12,18 @@ const PlaceDetails = ({ place, refProp, selected }) => {
   const { id, acf, _embedded } = place
   const title = place.title.rendered
 
-  const {
-    address,
-    website,
-    position: { latitude, longitude },
-  } = acf
+  const { address, website, position } = acf
 
   return (
     <Card elevation={6} id={id} className={classes.cardContent}>
-      <CardContent style={{ padding: 0, marginBottom: 20, width: "100%" }}>
+      <CardContent
+        style={{
+          padding: 0,
+          paddingBottom: 5,
+          marginBottom: 20,
+          width: "100%",
+        }}
+      >
         <div
           style={{
             marginTop: 20,
@@ -49,12 +35,12 @@ const PlaceDetails = ({ place, refProp, selected }) => {
           <div className="list-image-container">
             <img
               className="image"
-              src={place._embedded["wp:featuredmedia"][0].source_url}
-              alt={title}
+              src={_embedded["wp:featuredmedia"][0].source_url}
+              alt={decodeTitle(title)}
             />
           </div>
           <Typography gutterBottom variant={"h5"}>
-            {title}
+            {decodeTitle(title)}
           </Typography>
           {address && (
             <Box
@@ -103,9 +89,10 @@ const PlaceDetails = ({ place, refProp, selected }) => {
                 flexDirection: "row",
               }}
             >
-              <Link
+              <a
                 className="go-to-link"
-                to={website}
+                href={website}
+                rel="noreferrer"
                 target="_blank"
                 style={{
                   textDecoration: "none",
@@ -126,7 +113,7 @@ const PlaceDetails = ({ place, refProp, selected }) => {
                 >
                   {website}
                 </Typography>
-              </Link>
+              </a>
             </Box>
           )}
           {/* <Box
@@ -168,7 +155,7 @@ const PlaceDetails = ({ place, refProp, selected }) => {
               })}
           </Box> */}
         </div>
-        <CardActions>
+        {/* <CardActions>
           <Link
             to={{ pathname: `/location/${id}` }}
             style={{
@@ -200,7 +187,7 @@ const PlaceDetails = ({ place, refProp, selected }) => {
               View Location
             </button>
           </Link>
-        </CardActions>
+        </CardActions> */}
       </CardContent>
     </Card>
   )

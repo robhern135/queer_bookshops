@@ -1,14 +1,9 @@
-import React, { useState } from "react"
-// import MarkerInfo from "./MarkerInfo"
-
 import MarkerInfo from "./MarkerInfo"
 
 import { MarkerClusterer } from "@react-google-maps/api"
 import ClusterIcon from "../../icons/circle.png"
 
 const MapContents = ({ places, childClicked, setChildClicked }) => {
-  const [infoOpen, setInfoOpen] = useState(false)
-
   const styles = [
     {
       url: ClusterIcon,
@@ -46,7 +41,6 @@ const MapContents = ({ places, childClicked, setChildClicked }) => {
     <MarkerClusterer styles={styles}>
       {(clusterer) =>
         places?.map((place, idx) => {
-          // console.log({ place, idx })
           return (
             <MarkerInfo
               key={idx}

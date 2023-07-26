@@ -94,7 +94,7 @@ function App() {
             <MapView places={places} latLng={latLng} setLatLng={setLatLng} />
           }
         ></Route>
-        <Route path="/location/:id" element={<LocationView />}></Route>
+        {/* <Route path="/location/:id" element={<LocationView />}></Route> */}
       </Routes>
     </BrowserRouter>
   )

@@ -40,15 +40,15 @@ const Header = () => {
       setInfoOpen(!infoOpen)
     }
   }
-  const handleMenuPress = () => {
-    if (menuOpen) {
-      console.log("close menu")
-      setMenuOpen(!menuOpen)
-    } else {
-      console.log("open menu")
-      setMenuOpen(!menuOpen)
-    }
-  }
+  // const handleMenuPress = () => {
+  //   if (menuOpen) {
+  //     console.log("close menu")
+  //     setMenuOpen(!menuOpen)
+  //   } else {
+  //     console.log("open menu")
+  //     setMenuOpen(!menuOpen)
+  //   }
+  // }
 
   return (
     <>
@@ -57,20 +57,16 @@ const Header = () => {
           <div className="header-item left">
             <button className="header-button" onClick={handleInfoPress}>
               <img src={InfoIcon} className="info-icon" alt="menu" />
+              <div className="sr-only">Learn more about this map</div>
             </button>
           </div>
           <div className="header-item center">
-            <img src={Logo} alt="Vision Really Matters logo" className="logo" />
+            <h1>Reading is Fundamental</h1>
           </div>
-          <div className="header-item right">
-            <button className="header-button" onClick={handleMenuPress}>
-              <img src={MenuIcon} className="menu-icon" alt="menu" />
-            </button>
-          </div>
+          <div className="header-item right"></div>
         </div>
       </header>
       <Info infoOpen={infoOpen} setInfoOpen={setInfoOpen} />
-      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </>
   )
 }
