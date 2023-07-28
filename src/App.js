@@ -33,21 +33,20 @@ function App() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
   })
 
-  const API_URL =
-    "http://localhost:3000/experiments/queer_bookshops/wp/wp-json/wp/v2/bookshops/?_embed&per_page=100"
+  const API_URL = `${process.env.REACT_APP_API_URL}/wp-json/wp/v2/bookshops/?_embed&per_page=100`
 
   //first page data for testing
   const getPlacesData = async () => {
     try {
       // let FS_URL = `https://api.foursquare.com/v3/places/search?query=opticians&ll=${latLng}&categories=17037%2C%2015024&sort=DISTANCE&limit=10&fields=${fields}`
-      console.log(API_URL)
+      // console.log(API_URL)
       fetch(API_URL)
         .then((response) => response.json())
         .then((response) => setPlaces(response))
-        .then(function () {
-          console.log("places here")
-          console.log(places)
-        })
+        // .then(function () {
+        // console.log("places here")
+        // console.log(places)
+        // })
         .catch((err) => console.error(err))
     } catch (err) {
       console.log(err)
@@ -75,8 +74,8 @@ function App() {
 
   useEffect(() => {
     getPlacesData()
-    console.log("places")
-    console.log(places)
+    // console.log("places")
+    // console.log(places)
   }, [])
 
   if (loadError) return "Error loading maps"
