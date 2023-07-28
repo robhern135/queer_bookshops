@@ -198,7 +198,6 @@ header {
   display: flex;
   flex-direction: row;
   background-color: $creme;
-
   margin-top: 70px;
 }
 
@@ -343,8 +342,9 @@ header {
     transition: linear 350ms 150ms transform;
   }
 }
-.makeStyles-list-6 {
+#listContainer .MuiGrid-container {
   padding-bottom: 50px;
+  overflow: scroll;
 }
 ul.menu-list {
   margin: 0;
@@ -394,7 +394,7 @@ ul.menu-list {
 }
 .MuiGrid-item {
   transition: 350ms 150ms linear all;
-  .makeStyles-container-4 {
+  .MuiGrid-container {
     transition: 150ms linear all;
     overflow: hidden;
   }
@@ -442,8 +442,8 @@ button[color="primary"] {
 }
 
 @for $i from 1 through length($colors) {
-  .MuiGrid-item:nth-child(#{$i}) {
-    .makeStyles-cardContent-10 {
+  #listContainer .MuiGrid-item:nth-child(#{$i}) {
+    .MuiPaper-root {
       background-color: rgba(nth($colors, $i), 0.3);
       color: #000;
     }
