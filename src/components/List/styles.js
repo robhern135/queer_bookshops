@@ -22,6 +22,7 @@ export default makeStyles((theme) => ({
     marginBottom: "30px",
   },
   list: {
+    width: "100%",
     overflow: "auto",
   },
 }))

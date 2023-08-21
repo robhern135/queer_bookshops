@@ -3,6 +3,7 @@ import React, { useState, useEffect, createRef } from "react"
 import useStyles from "./styles"
 
 import PlaceDetails from "../PlaceDetails/PlaceDetails"
+import BounceLoader from "react-spinners/BounceLoader"
 
 //existing components
 import { Grid } from "@material-ui/core"

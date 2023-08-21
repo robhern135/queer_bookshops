@@ -10,6 +10,8 @@ import Map from "../components/Map/Map"
 import ChevronLeft from "../icons/chevron-left-solid.svg"
 import ChevronRight from "../icons/chevron-right-solid.svg"
 
+import { BounceLoader } from "react-spinners"
+
 const MapView = ({ places, country, setCountry, latLng, setLatLng }) => {
   const [userLocation, setUserLocation] = useState({ lat: 0, lng: 0 })
   const [userLocationGranted, setUserLocationGranted] = useState(false)
@@ -37,54 +39,63 @@ const MapView = ({ places, country, setCountry, latLng, setLatLng }) => {
   }
 
   return (
-    <Grid container spacing={0} style={{ width: "100%" }}>
-      <Grid
-        item
-        xs={drawerOpen ? 11 : 1}
-        sm={drawerOpen ? 8 : 1}
-        md={5}
-        id="listContainer"
-      >
-        <List
-          drawerOpen={drawerOpen}
-          center={center}
-          setCenter={setCenter}
-          latLng={latLng}
-          setLatLng={setLatLng}
-          places={places}
-          country={country}
-          setCountry={setCountry}
-          childClicked={childClicked}
-          setChildClicked={setChildClicked}
-        />
-        <button
-          id="drawerToggle"
-          className="drawer-toggle"
-          onClick={handleDrawer}
-        >
-          <img
-            width="10"
-            height="10"
-            src={drawerOpen ? ChevronLeft : ChevronRight}
-            className="chevron-icon"
-            alt="chevron"
-          />
-        </button>
-      </Grid>
-      <Grid item xs={drawerOpen ? 1 : 11} sm={drawerOpen ? 4 : 11} md={7}>
-        <Map
-          userLocation={userLocation}
-          userLocationGranted={userLocationGranted}
-          places={places}
-          country={country}
-          setCountry={setCountry}
-          childClicked={childClicked}
-          setChildClicked={setChildClicked}
-          center={center}
-          setCenter={setCenter}
-        />
-      </Grid>
-    </Grid>
+    <>
+      {places ? (
+        <Grid container spacing={0} style={{ width: "100%" }}>
+          <Grid
+            item
+            xs={drawerOpen ? 11 : 1}
+            sm={drawerOpen ? 8 : 1}
+            md={5}
+            id="listContainer"
+          >
+            <List
+              drawerOpen={drawerOpen}
+              center={center}
+              setCenter={setCenter}
+              latLng={latLng}
+              setLatLng={setLatLng}
+              places={places}
+              country={country}
+              setCountry={setCountry}
+              childClicked={childClicked}
+              setChildClicked={setChildClicked}
+            />
+            <button
+              id="drawerToggle"
+              className="drawer-toggle"
+              onClick={handleDrawer}
+            >
+              <img
+                width="10"
+                height="10"
+                src={drawerOpen ? ChevronLeft : ChevronRight}
+                className="chevron-icon"
+                alt="chevron"
+              />
+            </button>
+          </Grid>
+          <Grid item xs={drawerOpen ? 1 : 11} sm={drawerOpen ? 4 : 11} md={7}>
+            <Map
+              userLocation={userLocation}
+              userLocationGranted={userLocationGranted}
+              places={places}
+              country={country}
+              setCountry={setCountry}
+              childClicked={childClicked}
+              setChildClicked={setChildClicked}
+              center={center}
+              setCenter={setCenter}
+            />
+          </Grid>
+        </Grid>
+      ) : (
+        <div className="loading-container">
+          <BounceLoader color="#010101" />
+          <p>Loading...</p>
+        </div>
+      )}
+    </>
   )
 }
 export default MapView

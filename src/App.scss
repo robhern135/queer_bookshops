@@ -30,6 +30,20 @@ body {
   background: $creme;
   height: 100vh;
 }
+.loading-container {
+  background-color: $creme;
+  height: 100vh;
+  z-index: 20;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20;
+  p {
+    font-family: $headings;
+  }
+}
 .go-to-link {
   &:hover {
     text-decoration: underline !important;
@@ -342,9 +356,16 @@ header {
     transition: linear 350ms 150ms transform;
   }
 }
+#listContainer {
+  .jss6,
+  .makeStyles-container-4 {
+    width: 100%;
+  }
+}
 #listContainer .MuiGrid-container {
   padding-bottom: 50px;
   overflow: scroll;
+  width: 100%;
 }
 ul.menu-list {
   margin: 0;
