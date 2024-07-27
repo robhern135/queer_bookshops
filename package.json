@@ -1,6 +1,6 @@
 {
   "name": "queer-bookshops",
-  "homepage": "queerbookshops.findrob.co.uk",
+  "homepage": "/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

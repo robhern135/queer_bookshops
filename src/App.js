@@ -51,7 +51,7 @@ function App() {
   if (!isLoaded) return "Loading Maps"
 
   return (
-    <BrowserRouter basename="/queer-bookshops">
+    <BrowserRouter basename="/">
       <CssBaseline />
       <Header />
       <Routes>
